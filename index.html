@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::after, *::before {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 450px;
+            font-size: 0;
+        }
+        .contents {
+            border: 1px solid;
+            width: 33.33%;
+            height: 150px;
+            display: inline-block;
+            background-image: url('demo2.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .bigger-right {
+            height: 300px;
+            float: right;
+        }
+        .bigger-left {
+            height: 300px;
+            float: left;
+        }
+
+        /* helpers */
+        body {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            gap: 5px;
+        }
+        /* helpers */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contents bigger-right"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents bigger-left"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+    </div>
+    <h1>"So... This Is What It Feels Like."</h1>
+    <div>Logan</div>
+</body>
+</html>
