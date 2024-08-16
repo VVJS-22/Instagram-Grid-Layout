@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        :root {
-            --container-width: 75vw;
+    <script>
+        var root = document.documentElement;
+        var px_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+        function setContainerWidth(percentage) {
+            if (!isZooming()) {
+                let desiredWidth = Math.floor(window.innerWidth * percentage / 100);
+                let threeDivisableWidth = desiredWidth + (3 - (desiredWidth % 3));
+                root.style.setProperty('--container-width', `${Math.round(threeDivisableWidth)}px`);
+                root.style.setProperty('--content-size', `${Math.round(threeDivisableWidth / 3)}px`);
+                root.style.setProperty('--content-large-height', `${Math.round(threeDivisableWidth / 3 * 2)}px`);
+            }
         }
-        *,*::after, *::before {
+        function isZooming() {
+            var newPx_ratio = window.devicePixelRatio || window.screen.availWidth / document.documentElement.clientWidth;
+            if (newPx_ratio != px_ratio) {
+                px_ratio = newPx_ratio;
+                return true;
+            }
+            return false;
+        }
+        setContainerWidth(75);
+        window.addEventListener('resize', function (event) {
+            setContainerWidth(75);
+        })
+
+    </script>
+    <style>
+        *,
+        *::after,
+        *::before {
             margin: 0;
             padding: 0;
             outline: none;
             box-sizing: border-box;
         }
+
         .container {
             width: var(--container-width);
             font-size: 0;
             background-color: black;
         }
+
         .contents {
             border: 1px solid;
-            width: calc(var(--container-width) / 3);
-            height: calc(var(--container-width) / 3);
+            width: var(--content-size);
+            height: var(--content-size);
             display: inline-block;
             background-image: url('demo2.jpeg');
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
         }
+
         .bigger-right {
-            height: calc(var(--container-width) / 3 * 2);
+            height: var(--content-large-height);
             float: right;
         }
+
         .bigger-left {
-            height: calc(var(--container-width) / 3 * 2);
+            height: var(--content-large-height);
             float: left;
         }
 
@@ -45,9 +75,11 @@
             align-items: center;
             gap: 5px;
         }
+
         /* helpers */
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="contents bigger-right"></div>
@@ -74,4 +106,5 @@
     <h1>"So... This Is What It Feels Like."</h1>
     <div>Logan</div>
 </body>
+
 </html>
