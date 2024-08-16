@@ -12,17 +12,12 @@
             box-sizing: border-box;
         }
         .container {
-            width: 450px;
-            max-width: 100vw;
-            font-size: 0;
-            background-color: black;
+            display: grid;
+            grid-template-columns: repeat(3, 20rem);
+            grid-auto-rows: 20rem;
         }
         .contents {
             border: 1px solid;
-            width: 33.33%;
-            max-width: 33.33vw;
-            max-height: 33.33vw;
-            height: 150px;
             display: inline-block;
             background-image: url('demo2.jpeg');
             background-repeat: no-repeat;
@@ -30,22 +25,16 @@
             background-position: center;
         }
         .bigger-right {
-            height: 300px;
-            max-height: 66.6vw;
-            float: right;
+            grid-area: 1 / 1 / span 2 / span 1;
         }
         .bigger-left {
-            height: 300px;
-            max-height: 66.6vw;
-            float: left;
+            grid-area: 3 / 3 / span 2 / span 1;
         }
-
         /* helpers */
         body {
             display: flex;
             flex-flow: column;
             align-items: center;
-            gap: 5px;
         }
         /* helpers */
     </style>
@@ -60,6 +49,18 @@
         <div class="contents"></div>
         <div class="contents"></div>
         <div class="contents bigger-left"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+    </div>
+    <div class="container">
+        <div class="contents bigger-right"></div>
+        <div class="contents bigger-left"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
+        <div class="contents"></div>
         <div class="contents"></div>
         <div class="contents"></div>
     </div>
