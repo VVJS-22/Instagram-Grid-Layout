@@ -30,6 +30,27 @@
         .bigger-left {
             grid-area: 3 / 3 / span 2 / span 1;
         }
+
+        @media screen and (max-width: 1200px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        @media screen and (max-width: 900px) {
+            html {
+                font-size: 10px;
+            }
+        }
+        @media screen and (max-width: 640px) {
+            html {
+                font-size: 8px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 4px;
+            }
+        }
         /* helpers */
         body {
             display: flex;
