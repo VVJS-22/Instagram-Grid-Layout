@@ -14,7 +14,7 @@
                 let threeDivisableWidth = desiredWidth + (3 - (desiredWidth % 3));
                 root.style.setProperty('--container-width', `${Math.round(threeDivisableWidth)}px`);
                 root.style.setProperty('--content-size', `${Math.round(threeDivisableWidth / 3)}px`);
-                root.style.setProperty('--content-large-height', `${Math.round(threeDivisableWidth / 3 * 2)}px`);
+                root.style.setProperty('--content-large-height', `${Math.round(threeDivisableWidth / 3 * 2 - 1)}px`);
             }
         }
         function isZooming() {
